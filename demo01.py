@@ -44,17 +44,17 @@
 # 1、字典中的值没有顺序
 # 2、字典必须是键值对结构。 key:value
 
-a = {"name":"张三",0:"哈哈","age":25}
-print(a["name"])
-a["height"] = "183cm"
-a["name"] = "李斯"
-print(a)
+# a = {"name":"张三",0:"哈哈","age":25}
+# print(a["name"])
+# a["height"] = "183cm"
+# a["name"] = "李斯"
+# print(a)
 
-b = a.get("name") # 使用不存在的键会返回空值
-print(b)
+# b = a.get("name") # 使用不存在的键会返回空值
+# print(b)
 
-a.update(name=1111)
-print(a["name"])
+# a.update(name=1111)
+# print(a["name"])
 
-# 数组和字典的删除
-del a["name"]
+# # 数组和字典的删除
+# del a["name"]
