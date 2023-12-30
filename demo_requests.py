@@ -141,22 +141,23 @@ import requests
 
 # 钩子函数
 # hook指我们可以定义一盒或者多个公共方法，让请求结束后，自动去调用这些公共方法
-def readText(r,*args,**kwargs):
-    """
-    在接口请求结束后自动打打印text属性
-    """
-    print(r.text)
+# def readText(r,*args,**kwargs):
+#     """
+#     在接口请求结束后自动打打印text属性
+#     """
+#     print(r.text)
     
-def readHeaders(r,*args,**kwargs):
-    """
-    在接口请求结束后自动打印响应头属性
-    """
-    print(r.headers)
+# def readHeaders(r,*args,**kwargs):
+#     """
+#     在接口请求结束后自动打印响应头属性
+#     """
+#     print(r.headers)
 
-method = "post"
-url = "http://119.45.233.102:6677/testgoup/test/json"
-data = {
-    "name":"张三",
-    "age":23
-}
-r = requests.request(method,url,json=data,hooks=dict(response=[readText,readHeaders]))
+# method = "post"
+# url = "http://119.45.233.102:6677/testgoup/test/json"
+# data = {
+#     "name":"张三",
+#     "age":23
+# }
+# r = requests.request(method,url,json=data,hooks=dict(response=[readText,readHeaders]))
+

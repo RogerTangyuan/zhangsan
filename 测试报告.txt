@@ -1,0 +1,29 @@
+F...F...F...
+======================================================================
+FAIL: test_01_demo (test01.TestDemo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workhome\github\zhangsan\unittest\test01.py", line 5, in test_01_demo
+    self.assertEqual(1,2,"判断1和2相等")
+AssertionError: 1 != 2 : 判断1和2相等
+
+======================================================================
+FAIL: test_01_demo (test02.TestDemo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workhome\github\zhangsan\unittest\test02.py", line 5, in test_01_demo
+    self.assertEqual(1,2,"判断1和2相等")
+AssertionError: 1 != 2 : 判断1和2相等
+
+======================================================================
+FAIL: test_01_demo (test03.TestDemo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workhome\github\zhangsan\unittest\test03.py", line 5, in test_01_demo
+    self.assertEqual(1,2,"判断1和2相等")
+AssertionError: 1 != 2 : 判断1和2相等
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+FAILED (failures=3)
