@@ -56,7 +56,7 @@ with open ("测试报告.html","wb",) as f:
 
 
 # 断言
-# 常用的断言
+## 常用的断言
 - assertEqual
 判断任意的两个值相等
 - assertNotEqual
@@ -82,7 +82,7 @@ with open ("测试报告.html","wb",) as f:
 - assertNotIsInstance
 判断某个对象不属于某个class实例
 
-# 比较断言
+## 比较断言
 - assertAlmostEqual
 判断两个小数约等于
 这个断言方法存在5个参数
@@ -97,3 +97,64 @@ assertAlmostEqual(1.11222,1.12234234,None,"前2位小数做对比"，1)
 
 - assertGreater
 first > second
+
+## 装饰器
+在实际工作中，用例可能会存在很多。
+但是这些用例，有可能不是所有的用例都是需要运行的。
+利用testCase自带的装饰器来实现用例运行的过程的控制
+
+- @unittest.skip("03这个用例不运行")
+控制对应的的用例不参与测试的过程，这条用例是不运行的
+- @unittest.skipIf(1==1,"结果如果是True，那么这个用例就不会运行")
+如果条件为真，那么这个用例不会参与运行
+- @unittest.skipUnless()
+如果条件为假，那么这个用例不会参与运行
+- @unittest.expectedFailure
+我们在测试之前已知这个用例是无法通过测试的
+加上这个装饰器，那么这个用例在测试的时候就算没有通过测试，也不算失败
+
+运行结果说明
+\.表示测试通过
+F 表示测试失败
+s 表示跳过测试
+x 表示预期失败
+u 表示意外成功
+
+## 测试夹具（fixture）
+测试夹具可以把我们在测试运行前和结束后需要运行的代码抽离出来，单独放到夹具中去运行
+可以方便我们的代码组织和维护，减少重复的代码量
+
+
+- setUp
+在没事测试用例运行前运行，一般我们会在这里写一些实现测试用例的前置条件的代码
+- tearDown
+在每个测试用例运行结束后，一般我们会在这里面写一些清理测试环境的代码，或者关闭，删除某个测试中出现不必要的东西的代码
+
+- setUpClass
+在每个测试类运行前运行
+
+- setDownClass
+在每个测试类结束运行的时候运行
+
+- setUpModule
+在每个测试模块运行前运行
+- tearDownModule
+在每个测试模块运行结束后运行
+
+
+## unittest的清理函数
+清理函数addCleanup和doCleanups是python3.1后新加的功能
+清理函数默认都是在teardown后面运行的
+
+清理函数的使用，需要先自己封装一个方法，这个方法里面写的代码就是用来做清理的作用的
+
+可以在测试类的任意位置，注册清理函数
+self.addCleanup(clear)
+如果addCleanup写在setUp中，那么这个清理函数会对所有的用例teardo后生效
+我们可以通过doCleanups方法来控制我们的清理函数运行的位置
+
+在python3.9后新增了addClassCleanup和doClassCleanups用于测试类的方法
+
+清理函数和夹具
+相同点，都可以实现对测试用例，测试类的前置、后置的操作处理
+不同点，清理函数可以自定义使用的位置，比较灵活
