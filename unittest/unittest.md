@@ -150,7 +150,7 @@ u 表示意外成功
 
 可以在测试类的任意位置，注册清理函数
 self.addCleanup(clear)
-如果addCleanup写在setUp中，那么这个清理函数会对所有的用例teardo后生效
+如果addCleanup写在setUp中，那么这个清理函数会对所有的用例teardown后生效
 我们可以通过doCleanups方法来控制我们的清理函数运行的位置
 
 在python3.9后新增了addClassCleanup和doClassCleanups用于测试类的方法
