@@ -25,7 +25,7 @@ unittest.main()会自动发现我们这个模块中的所有测试类中的测�
 
 ```
 suite = unittest.TestSuite()
-case = unittest.defaultTestLoader.discover(start_dir="D:/workhome/github/zhangsan/unittest",pattern="test*.py")
+case = unittest.defaultTestLoader.discover(start_dir="unittest\case",pattern="test*.py")
 suite.addTest(case)
 ```
 
@@ -46,7 +46,7 @@ import unittest
 from HTMLTestRunner import HTMLTestRunner
 suite = unittest.TestSuite()
 
-case = unittest.defaultTestLoader.discover(start_dir="D:/workhome/github/zhangsan/unittest",pattern="test*.py")
+case = unittest.defaultTestLoader.discover(start_dir="unittest\case",pattern="test*.py")
 suite.addTest(case)
 
 with open ("测试报告.html","wb",) as f:
@@ -158,3 +158,43 @@ self.addCleanup(clear)
 清理函数和夹具
 相同点，都可以实现对测试用例，测试类的前置、后置的操作处理
 不同点，清理函数可以自定义使用的位置，比较灵活
+
+
+## unittest子测试
+使用subTest可以让我们的测试用例支持数据驱动的测试方式
+写法固定
+```py
+def test_01_demo(self):
+    data = (1,2,3) #可以从文件中读取数据
+    for d in data:
+        with self.subTest(data=d):
+            self.assertEqual(1.d)
+```
+
+## unittest的数据驱动的常规实现的过程
+subTest 对应其他格式的测试数据文件，需要自己封装方法来读取
+ddt 第三方包，通过ddt类装饰器调用
+@ddt.file_data 可以实现自动的从文件中去读取测试数据,json,yaml(该格式需要安装PyYaml包),但是对应其他格式的测试数据文件，需要自己封装方法来读取
+#@data(test_data)不加*，是一条用例，执行1次。输出结果：item [do, 3]。加了*，@data(*test_data)，
+#就脱1层外套变成两个数据，运行两次，两条用例。
+#输出结果：item do
+#         item 3
+
+
+## 邮件发送
+1、准备工作
+以网易163邮箱为例，我们需要在我们自己的邮箱中开启smtp的功能，生成密钥
+2、开始编写代码
+
+## 展望
+1、结合实际项目，去封装更多更好的方法到我们的框架中。
+比如，结合接口自动化测试的项目，我们可以把requests给封装起来，方便我们快速的操作接口。
+封装pyMysql，实现对mysql数据库的快速操作。
+做UI自动化测试。
+实现OP，把要操作的测试对象给封装起来，它selenium做二次的封装。
+
+2、消息推送
+邮件、微信、钉钉、短信
+
+3、持续集成
+把测试过程继承到Jenkins

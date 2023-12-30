@@ -189,11 +189,11 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2023-12-30 14:35:33</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:00.000999</p>
-<p class='attribute'><strong>Status:</strong> Pass 9 Failure 3</p>
+<p class='attribute'><strong>Start Time:</strong> 2023-12-30 22:29:02</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00</p>
+<p class='attribute'><strong>Status:</strong> Failure 1</p>
 
-<p class='description'>这是项目的描述</p>
+<p class='description'>这是项目描述</p>
 </div>
 
 
@@ -222,16 +222,16 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='failClass'>
-    <td>test01.TestDemo</td>
-    <td>2</td>
-    <td>1</td>
+    <td>test07.TestDemo</td>
     <td>1</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
 <tr id='ft1.1' class='none'>
-    <td class='failCase'><div class='testcase'>test_01_demo</div></td>
+    <td class='failCase'><div class='testcase'>test_01_demo_1____测试输入正确的账号密码注册成功___1__1_____测试输入错误的账号密码注册失败___1__0_____测试输入正确的账号密码登录成功___2__2_____测试输入正确的账号密码登录失败___2__3__</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -246,13 +246,39 @@ function showOutput(id, name) {
         <pre>
         
 ft1.1: Traceback (most recent call last):
-  File "D:\workhome\github\zhangsan\unittest\test01.py", line 5, in test_01_demo
-    self.assertEqual(1,2,"判断1和2相等")
-AssertionError: 1 != 2 : 判断1和2相等
+  File "D:\Python\lib\site-packages\ddt.py", line 225, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\workhome\github\zhangsan\unittest\case\test07.py", line 23, in test_01_demo
+    self.assertEqual(value3,value4,value1)
+AssertionError: Lists differ: ['测试输入正确的账号密码登录成功', 2, 2] != ['测试输入正确的账号密码登录失败', 2, 3]
+
+First differing element 0:
+'测试输入正确的账号密码登录成功'
+'测试输入正确的账号密码登录失败'
+
+- ['测试输入正确的账号密码登录成功', 2, 2]
+?                ^^      ^
+
++ ['测试输入正确的账号密码登录失败', 2, 3]
+?                ^^      ^
+ : ['测试输入正确的账号密码注册成功', 1, 1]
 Traceback (most recent call last):
-  File "D:\workhome\github\zhangsan\unittest\test01.py", line 5, in test_01_demo
-    self.assertEqual(1,2,"判断1和2相等")
-AssertionError: 1 != 2 : 判断1和2相等
+  File "D:\Python\lib\site-packages\ddt.py", line 225, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\workhome\github\zhangsan\unittest\case\test07.py", line 23, in test_01_demo
+    self.assertEqual(value3,value4,value1)
+AssertionError: Lists differ: ['测试输入正确的账号密码登录成功', 2, 2] != ['测试输入正确的账号密码登录失败', 2, 3]
+
+First differing element 0:
+'测试输入正确的账号密码登录成功'
+'测试输入正确的账号密码登录失败'
+
+- ['测试输入正确的账号密码登录成功', 2, 2]
+?                ^^      ^
+
++ ['测试输入正确的账号密码登录失败', 2, 3]
+?                ^^      ^
+ : ['测试输入正确的账号密码注册成功', 1, 1]
 
 
         </pre>
@@ -260,167 +286,13 @@ AssertionError: 1 != 2 : 判断1和2相等
     <!--css div popup end-->
 
     </td>
-</tr>
-
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_02_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr class='passClass'>
-    <td>test01.TestDemo1</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
-</tr>
-
-<tr id='pt2.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_01_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt2.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_02_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr class='failClass'>
-    <td>test02.TestDemo</td>
-    <td>2</td>
-    <td>1</td>
-    <td>1</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c3',2)">Detail</a></td>
-</tr>
-
-<tr id='ft3.1' class='none'>
-    <td class='failCase'><div class='testcase'>test_01_demo</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
-        fail</a>
-
-    <div id='div_ft3.1' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft3.1: Traceback (most recent call last):
-  File "D:\workhome\github\zhangsan\unittest\test02.py", line 5, in test_01_demo
-    self.assertEqual(1,2,"判断1和2相等")
-AssertionError: 1 != 2 : 判断1和2相等
-Traceback (most recent call last):
-  File "D:\workhome\github\zhangsan\unittest\test02.py", line 5, in test_01_demo
-    self.assertEqual(1,2,"判断1和2相等")
-AssertionError: 1 != 2 : 判断1和2相等
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt3.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_02_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr class='passClass'>
-    <td>test02.TestDemo1</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c4',2)">Detail</a></td>
-</tr>
-
-<tr id='pt4.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_01_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt4.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_02_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr class='failClass'>
-    <td>test03.TestDemo</td>
-    <td>2</td>
-    <td>1</td>
-    <td>1</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c5',2)">Detail</a></td>
-</tr>
-
-<tr id='ft5.1' class='none'>
-    <td class='failCase'><div class='testcase'>test_01_demo</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
-        fail</a>
-
-    <div id='div_ft5.1' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft5.1: Traceback (most recent call last):
-  File "D:\workhome\github\zhangsan\unittest\test03.py", line 5, in test_01_demo
-    self.assertEqual(1,2,"判断1和2相等")
-AssertionError: 1 != 2 : 判断1和2相等
-Traceback (most recent call last):
-  File "D:\workhome\github\zhangsan\unittest\test03.py", line 5, in test_01_demo
-    self.assertEqual(1,2,"判断1和2相等")
-AssertionError: 1 != 2 : 判断1和2相等
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt5.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_02_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr class='passClass'>
-    <td>test03.TestDemo1</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c6',2)">Detail</a></td>
-</tr>
-
-<tr id='pt6.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_01_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt6.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_02_demo</div></td>
-    <td colspan='5' align='center'>pass</td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>12</td>
-    <td>9</td>
-    <td>3</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

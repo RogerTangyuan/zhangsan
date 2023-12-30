@@ -1,13 +1,13 @@
 import unittest
-from HTMLTestRunner import HTMLTestRunner
+import time
+from utils import HTMLTestRunner
 suite = unittest.TestSuite()
-# suite.addTest(TestDemo("test_01_demo"))
-# suite.addTest(TestDemo("test_02_demo"))
-# suite.addTest(TestDemo1("test_01_demo"))
-# suite.addTest(TestDemo1("test_02_demo"))
-case = unittest.defaultTestLoader.discover(start_dir="D:/workhome/github/zhangsan/unittest",pattern="test*.py")
-suite.addTest(case)
 
-with open ("测试报告.html","wb",) as f:
-    runner = HTMLTestRunner(stream=f,title="测试报告",description="这是项目的描述")
+#case = unittest.defaultTestLoader.discover(start_dir="unittest\case",pattern="test*.py")
+case = unittest.defaultTestLoader.discover(start_dir="unittest\case",pattern="test07.py")
+suite.addTest(case)
+now = time.strftime("%Y-%m-%d %H-%M-%S")
+path = "unittest/reports/测试报告-{}.html".format(now)
+with open (path,"wb",) as f:
+    runner = HTMLTestRunner.HTMLTestRunner(stream=f,title="测试报告",description="这是项目描述")
     runner.run(suite)
