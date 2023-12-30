@@ -74,3 +74,89 @@ import requests
 # data = {"files":open("日记.txt","rb")}
 # r = requests.request(method,url,files=data)
 # print(r.text)
+
+
+# 文件下载
+# stream为false，就一次性下载全部文件，适用于小文件的下载
+# stream为true，就可以一点点下载文件，适用于大文件的下载
+# url = "http://119.45.233.102:6677/testgoup/test/download"
+# method = "get"
+# r = requests.request(method,url,stream=True)
+
+# with open("图片.png","wb") as f:
+#     for chunk in r.iter_content(chunk_size=512):
+#         f.write(chunk)
+
+
+# cookies操作
+# 主要用于接口鉴权，一般再登录接口会返回cookies，然后其他的要求登陆后才能使用的接口需要cookies对应的参数，从而实现登录的鉴权
+
+# 登录
+# url = "http://119.45.233.102:6677/testgoup/test/login"
+# method = "post"
+# json = {"username":"admin","password":"123456"}
+# r = requests.request(method,url,json=json)
+# print(r.headers.get("Set-Cookie"))
+
+# # 获取信息
+# url = "http://119.45.233.102:6677/testgoup/test/info"
+# method = "get"
+# cookies = {"token":"sdjhfsdjkfsdkfjseiufseiuf"}
+# r =requests.request(method,url,cookies=cookies)
+# print(r.text)
+
+# 会话保持
+# 使用的请求对象不是request，而使用session的对象，两者使用方式是一样的
+# s = requests.session()
+# url = "http://119.45.233.102:6677/testgoup/test/login"
+# method = "post"
+# json = {"username":"admin","password":"123456"}
+# r = s.request(method,url,json=json)
+# print(r.headers.get("Set-Cookie"))
+
+# # 获取信息
+# url = "http://119.45.233.102:6677/testgoup/test/info"
+# method = "get"
+# r =s.request(method,url)
+# print(r.text)
+
+
+# auth
+# 是一种对接口进行鉴权的方式，与cookies和token的作用差不多
+# url = "http://119.45.233.102:6677/testgoup/test/auth"
+# method = "post"
+# auth =("admin","123456")
+# r = requests.request(method,url,auth=auth)
+# print(r.text)
+
+# 响应数据
+# text
+# 以文本的格式读取响应的数据
+# content
+# 以二进制字节的方式读取响应的数据
+# headers
+# 响应头
+# url
+# 请求的地址
+
+# 钩子函数
+# hook指我们可以定义一盒或者多个公共方法，让请求结束后，自动去调用这些公共方法
+def readText(r,*args,**kwargs):
+    """
+    在接口请求结束后自动打打印text属性
+    """
+    print(r.text)
+    
+def readHeaders(r,*args,**kwargs):
+    """
+    在接口请求结束后自动打印响应头属性
+    """
+    print(r.headers)
+
+method = "post"
+url = "http://119.45.233.102:6677/testgoup/test/json"
+data = {
+    "name":"张三",
+    "age":23
+}
+r = requests.request(method,url,json=data,hooks=dict(response=[readText,readHeaders]))
