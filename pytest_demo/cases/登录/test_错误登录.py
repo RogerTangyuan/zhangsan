@@ -1,43 +1,52 @@
-def setup_module():
-    print('\n *** 初始化-模块 ***')
+from pytest_demo.lib.login import loginAndCheck
 
-def teardown_module():
-    print('\n ***   清除-模块 ***')
-
-class Test_错误密码:
-
-    @classmethod
-    def setup_class(cls):
-        print('\n === 初始化-类 ===')
-
-    @classmethod
-    def teardown_class(cls):
-        print('\n === 清除 - 类 ===')
+class Test_FailLogin:
+    # @pytest.mark.parametrize('username, password, expectedalert', [
+    #     (None, '88888888', '请输入用户名'),
+    #     ('byhy', None, '请输入密码'),
+    #     ('byh', '88888888', '登录失败 : 用户名或者密码错误'),
+    #     ('byhy', '8888888', '登录失败 : 用户名或者密码错误'),
+    #     ('byhy', '888888888', '登录失败 : 用户名或者密码错误'),
+    # ]
+    #                          )
+    # def test_UI_0001_0005(self, username, password, expectedalert):
+    #     alertText = loginAndCheck(username, password)
+    #     assert alertText == expectedalert
         
-    def setup_method(self):
-        print('\n --- 初始化-方法  ---666')
-
-    def teardown_method(self):
-        print('\n --- 清除  -方法 ---666')
+    def test_UI_0001(self):
+        print("\n用例 UI_0001")
         
-    def test_C001001(self):
-        print('\n用例C001001')
-        assert 1 == 1
+        alertText = loginAndCheck(None,"88888888")
         
-    def test_C001002(self):
-        print('\n用例C001002')
-        assert 2 == 2
+        assert alertText == "请输入用户名"
+       
+    
+    def test_UI_0002(self):
+        print("\n用例 UI_0002")
         
-    def test_C001003(self):
-        print('\n用例C001003')
-        assert 3 == 2
-
-class Test_错误密码2:
-
-    def test_C001021(self):
-        print('\n用例C001021')
-        assert 1 == 1
+        alertText = loginAndCheck("byhy",None)
         
-    def test_C001022(self):
-        print('\n用例C001022')
-        assert 2 == 2
+        assert alertText == "请输入密码"
+        
+    def test_UI_0003(self):
+        print("\n用例 UI_0003")
+        
+        alertText = loginAndCheck("byh","88888888")
+        
+        assert alertText == "登录失败 : 用户名或者密码错误"
+    
+    def test_UI_0004(self):
+        print("\n用例 UI_0004")
+        
+        alertText = loginAndCheck("byhy","8888888")
+        
+        assert alertText == "登录失败 : 用户名或者密码错误"
+    
+    def test_UI_0005(self):
+        print("\n用例 UI_0005")
+        
+        alertText = loginAndCheck("byhy","888888888")
+        
+        assert alertText == "登录失败 : 用户名或者密码错误"
+        
+    

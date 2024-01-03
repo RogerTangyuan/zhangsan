@@ -1,5 +1,10 @@
 {
     "cSpell.ignoreWords": [
         "pytest"
+    ],
+    "cSpell.words": [
+        "autouse",
+        "classmethod",
+        "webtest"
     ]
 }
